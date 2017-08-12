@@ -1,0 +1,83 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
+/*   Updated: 2017/08/11 16:46:34 by wfung            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef __FDF_H__
+# define __FDF_H__
+
+#include <unistd.h> 
+#include <stdlib.h>
+#include "libft/libft.h"
+#include "libft/get_next_line.h"
+#include "minilibx_macos/mlx.h"
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+#define WHT 0xfffafa
+#define	RED 0xff0000
+#define GRN 0xff00
+
+
+#include <stdio.h>	//
+
+//values for the 3 pts; not sure if needed?
+typedef struct			s_pts
+{
+	float					x;
+	float					y;
+	float					z;
+	float					x_stop;	//x pixel stop
+	float					y_stop;	//y pixel stop
+	float					m_slope;	//slope of line?
+}						t_pts;	//malloc for (**t_pts) row * col
+
+typedef struct			s_env
+{
+	void				*mlx;
+	void				*win;
+	int					win_size_x;	//win
+	int					win_size_y;	//win
+	float				win_mid_x;	//win
+	float				win_mid_y;	//win
+	int					start_x;	//grid
+	int					start_y;	//grid
+	float				end_x;		//grid limit
+	float				end_y;		//grid limit
+	float				h_gap;			//remove
+	float				w_gap;			//remove
+	float				gap1;
+	float				max_x;		
+	float				max_y;
+	t_pts				**pts;
+	int					row;
+	int					col;
+	int					**array_int;
+}						t_env;
+
+t_env		*parse_fdf(char **av);
+
+t_env		*create_struct1(int n, int win_size);
+int			save_values(char **av, t_env *e);
+void		array_int(char **result_str, int n, int *array);
+
+//t_env		*set_window1(int n, t_env *e);
+void		draw2(void *mlx, void *win, t_env *e);
+
+//void		rotate(t_fdfstore *store, t_env *e);
+//void		translate(t_fdfstore *store, t_env *e);
+//
+//ttest functions
+//void		print_array_int(int **array_int, t_env *e);
+void		print_array_int(t_env *e);
+
+#endif
