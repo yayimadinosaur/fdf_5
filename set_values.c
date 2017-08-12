@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_window2.c                                      :+:      :+:    :+:   */
+/*   set_values.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 15:32:15 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/11 15:34:48 by wfung            ###   ########.fr       */
+/*   Created: 2017/08/11 20:49:48 by wfung             #+#    #+#             */
+/*   Updated: 2017/08/11 20:55:17 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static t_pts	**ft_setpts1( t_env *e)
 
 static t_env	*set_window1(int n, t_env *e)
 {
+	printf("test now\n");
 	if (n < 0)
 		ft_putstr("window size needs to be positive\n");
 	if (n == 0)
@@ -69,19 +70,13 @@ static t_env	*set_window1(int n, t_env *e)
 	e->max_y = e->gap1 * (e->row - 1);
 //	e->mlx = mlx_init();
 //	e->win = mlx_new_window(e->mlx, e->win_size_x, e->win_size_y, "42");
+	printf("uhoh\n");
 	return (e);
 }
 
-t_env			*create_struct1(int n, int win_size)
+void			set_values(int win_size, t_env *e)
 {
-	t_env	*e;
-
-	if (n == 1)
-	{
-		e->row = 0;
-		e->col = 0;
-	}
-	else if (n == 2)
-		set_window1(win_size, e);
-	return (e);
+	printf("test here\n");
+	set_window1(win_size, e);
+//	return (e);
 }

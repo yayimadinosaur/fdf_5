@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/11 14:50:44 by wfung             #+#    #+#              #
-#    Updated: 2017/08/11 15:16:38 by wfung            ###   ########.fr        #
+#    Updated: 2017/08/11 20:25:23 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ FLAG	=	-Wall -Wextra -Werror
 
 SRCS	=	main.c\
 			parse_fdf.c\
+			set_values.c\
 
 OBJ =		${SRCS:.c=.o}
 

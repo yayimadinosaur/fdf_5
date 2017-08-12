@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/11 16:48:52 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/11 20:54:47 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,6 @@ t_env			*parse_fdf(char **av)
 		free(e);
 		ft_puterror(".fdf file contents invalid");
 	}
+	printf("testtest\n");
 	return (e);
 }

@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/11 16:46:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/11 20:51:15 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,33 @@ typedef struct			s_pts
 	float					z;
 	float					x_stop;	//x pixel stop
 	float					y_stop;	//y pixel stop
-	float					m_slope;	//slope of line?
+	float					m_slope;	//slope of line = m
 }						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env
 {
 	void				*mlx;
 	void				*win;
+
 	int					win_size_x;	//win
 	int					win_size_y;	//win
 	float				win_mid_x;	//win
 	float				win_mid_y;	//win
+
 	int					start_x;	//grid
 	int					start_y;	//grid
 	float				end_x;		//grid limit
 	float				end_y;		//grid limit
+
 	float				h_gap;			//remove
 	float				w_gap;			//remove
 	float				gap1;
+
 	float				max_x;		
 	float				max_y;
+
 	t_pts				**pts;
+
 	int					row;
 	int					col;
 	int					**array_int;
@@ -66,11 +72,9 @@ typedef struct			s_env
 
 t_env		*parse_fdf(char **av);
 
-t_env		*create_struct1(int n, int win_size);
-int			save_values(char **av, t_env *e);
+void		set_values(int win_size, t_env *e);
 void		array_int(char **result_str, int n, int *array);
 
-//t_env		*set_window1(int n, t_env *e);
 void		draw2(void *mlx, void *win, t_env *e);
 
 //void		rotate(t_fdfstore *store, t_env *e);
