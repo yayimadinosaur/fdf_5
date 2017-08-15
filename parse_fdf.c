@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/11 20:54:47 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/14 19:00:44 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,9 @@ static int		parse_file(char **av, t_env *e)
 	int			fd;
 	char		*buff;
 
-	fd = open(av[1], O_RDONLY);
+	e->row = 0;
+	if ((fd = open(av[1], O_RDONLY)) < 0)
+		ft_puterror(".fdf file reading failed\n");
 	while (get_next_line(fd, &buff) == 1)
 	{
 		e->col = count_num_str(buff, '\n', '\0');
@@ -78,6 +80,7 @@ static int		parse_file(char **av, t_env *e)
 		free(buff);
 		e->row = e->row + 1;
 	}
+	close(fd);
 	if (e->row < 2 || e->col < 2)
 	{
 		ft_putstr("Invalid file contents: col or row off");
@@ -85,7 +88,6 @@ static int		parse_file(char **av, t_env *e)
 	}
 	printf("parse row = %i\n", e->row);	//
 	printf("parse col = %i\n", e->col);	//
-	close(fd);
 	return (1);
 }
 
@@ -97,7 +99,8 @@ static int		parse_contents(char **av)
 
 	int		chk_line = 1;	//
 
-	fd = open(av[1], O_RDONLY);
+	if ((fd = open(av[1], O_RDONLY)) < 0)
+		ft_puterror(".fdf file reading failed\n");
 	while (get_next_line(fd, &line) == 1)
 	{
 		i = 0;
@@ -118,6 +121,7 @@ static int		parse_contents(char **av)
 		free(line);
 		chk_line++;	//
 	}
+	printf("parse_contents chk line count [%i]\n", chk_line);//
 	close(fd);
 	return (1);
 }
@@ -143,13 +147,15 @@ t_env			*parse_fdf(char **av)
 		ft_puterror(".fdf contents invalid");
 	if (!(e = (t_env*)malloc(sizeof(t_env))))
 		ft_puterror("struct malloc failed");
-	e->row = 0;
-	e->col = 0;
 	if (parse_file(av, e) != 1)
 	{
 		free(e);
 		ft_puterror(".fdf file contents invalid");
 	}
-	printf("testtest\n");
+	if (!(e->array_int = ft_array_int(e->row, e->col)))
+	{
+		free(e);
+		ft_puterror("struct malloc failed - array_int");
+	}
 	return (e);
 }

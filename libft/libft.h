@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 10:11:06 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/11 15:44:48 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/14 19:01:33 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ size_t				ft_strcmp_len(char *s1, char *s2);
 size_t				ft_lst_count(t_list *lst);
 char				*ft_strtrim_nows(char *str);
 int					ft_puterror(char *str);
+int					**ft_array_int(int row, int col);
 #endif
