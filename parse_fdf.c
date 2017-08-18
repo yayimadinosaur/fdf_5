@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 16:46:05 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/14 19:00:44 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 18:19:55 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,13 @@ t_env			*parse_fdf(char **av)
 		free(e);
 		ft_puterror(".fdf file contents invalid");
 	}
-	if (!(e->array_int = ft_array_int(e->row, e->col)))
+/*	if (!(e->array_int = ft_array_int(e->row, e->col)))
+	{
+		free(e);
+		ft_puterror("struct malloc failed - array_int");
+	}
+*/	
+	if (!(e->pts = create_struct(e->row, e->col)))
 	{
 		free(e);
 		ft_puterror("struct malloc failed - array_int");

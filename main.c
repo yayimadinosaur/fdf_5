@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/14 18:15:31 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 18:31:45 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int ac, char **av)
 		ft_puterror("Please include a .fdf file");
 	e = parse_fdf(av);
 	ft_putstr(".fdf parsing filename + file contents  pass!\n");	//
-	set_values(600, e, av);
+	set_values1(600, e, av);
 	printf("test spot\n");
 	printf("struct values\n"
 			"w_size_x %i\n"
@@ -47,7 +47,7 @@ int		main(int ac, char **av)
 		j = 0;
 		while (j < e->col)
 		{
-			printf("[%i]", e->array_int[i][j]);
+			printf("[%i][%i][%f][%f][%f]", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
 			j++;
 		}
 		printf("\n");
