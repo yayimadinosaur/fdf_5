@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 15:51:20 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/17 18:33:40 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 19:52:14 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ static void	set_window1(int n, t_env *e)
 	e->w_gap = (e->end_x - e->start_x) / (e->col - 1);
 	e->gap = (e->h_gap >= e->w_gap ? e->w_gap : e->h_gap);
 //	e->pts = setpts1(e);
-	e->max_x = e->gap * (e->col - 1);
-	e->max_y = e->gap * (e->row - 1);
+//	e->max_x = e->gap * (e->col - 1);
+//	e->max_y = e->gap * (e->row - 1);
 //	e->mlx = mlx_init();
 //	e->win = mlx_new_window(e->mlx, e->win_size_x, e->win_size_y, "42");
 	printf("set values - set window done\n");
@@ -122,9 +122,13 @@ void			set_values1(int win_size, t_env *e, char **av)
 			clean_strsplit(buff, line, e, e->col);
 		while (j < e->col)
 		{
-			e->pts[i][j].x = i * e->gap;
-			e->pts[i][j].y = j * e->gap;
+			e->pts[i][j].x = j * e->gap;
+			e->pts[i][j].y = i * e->gap;
 			e->pts[i][j].z = ft_atoi(buff[j]);
+			if (j + 1 > e->col || i + 1 > e->row)
+				break;
+			e->pts[i][j].x_stop = (j + 1) * e->gap;
+			e->pts[i][j].y_stop = (i + 1) * e->gap;
 		//	printf("e->array_int[%i]%i] = %i\n", i, j,e->array_int[i][j]);
 			j++;
 		}

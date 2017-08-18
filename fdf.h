@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/17 18:35:13 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 19:08:13 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ typedef struct			s_env
 	float				w_gap;			//remove
 	float				gap;
 
-	float				max_x;		
-	float				max_y;
+//	float				max_x;		
+//	float				max_y;
 
 	t_pts				**pts;
 
 	int					row;
 	int					col;
-	int					**array_int;
+//	int					**array_int;
 }						t_env;
 
 t_env		*parse_fdf(char **av);
@@ -78,7 +78,7 @@ void		set_values1(int win_size, t_env *e, char **av);
 t_pts		**create_struct(int row, int col);
 void		array_int(char **result_str, int n, int *array);
 
-void		draw2(void *mlx, void *win, t_env *e);
+void		draw(void *mlx, void *win, t_env *e);
 
 //void		rotate(t_fdfstore *store, t_env *e);
 //void		translate(t_fdfstore *store, t_env *e);

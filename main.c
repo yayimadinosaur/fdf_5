@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/17 18:31:45 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 19:32:13 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@ int		main(int ac, char **av)
 			"end_x %f\n"
 			"end_y %f\n"
 			"gap %f\n"
-			"max_x %f\n"
-			"max_y %f\n"
+		//	"max_x %f\n"
+		//	"max_y %f\n"
 			"row %i\n"
 			"col %i\n"
 			, e->win_size_x, e->win_size_y, e->win_mid_x, e->win_mid_y, e->start_x,
-			e->start_y, e->end_x, e->end_y, e->gap, e->max_x, e->max_y, e->row,
-			e->col);
-	// testing array_int
+			e->start_y, e->end_x, e->end_y, e->gap, e->row, e->col);
+	// testing array_int - pts
 	while (i < e->row)
 	{
 		j = 0;
 		while (j < e->col)
 		{
-			printf("[%i][%i][%f][%f][%f]", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
+			printf("[i%i][j%i][x%f][y%f][z%f]", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
+			printf("[x_s%f][y_s%f]", e->pts[i][j].x_stop, e->pts[i][j].y_stop);
 			j++;
 		}
 		printf("\n");
@@ -55,5 +55,9 @@ int		main(int ac, char **av)
 	}
 	printf("fin array_int\n");
 	//fin test
+	e->mlx = mlx_init();
+	e->win = mlx_new_window(e->mlx, 600, 600, "42");
+	draw(e->mlx, e->win, e);
+	mlx_loop(e->mlx);
 	return (0);
 }

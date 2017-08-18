@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 20:49:48 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/14 19:23:54 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/17 15:46:56 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static void		clean_strsplit(char **buff, char *line, t_env *e, int range)
 
 static void		setpts2(t_env *e, int i, int j)
 {
-	printf("setpts2 chk i%ij%i\n", i, j);
-	printf("e->pts[%i][%i].x = %f\n", i, j, e->pts[i][j].x);
-	e->pts[i][j].x = e->gap * j;
+	printf("setpts2 chk i%ij%i\n", i, j);	//segfaults after here
+//	printf("e->pts[%i][%i].x = %f\n", i, j, e->pts[i][j].x);
+//	e->pts[i][j].x = e->gap * j;
 	printf("setpts2 xgap\n");
 	e->pts[i][j].y = e->gap * i;
 	printf("setpts2 ygap\n");
