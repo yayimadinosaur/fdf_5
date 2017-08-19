@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/11 14:50:44 by wfung             #+#    #+#              #
-#    Updated: 2017/08/17 19:06:26 by wfung            ###   ########.fr        #
+#    Updated: 2017/08/18 15:52:25 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAG	=	-Wall -Wextra -Werror
 
 SRCS	=	main.c\
 			parse_fdf.c\
-			set_values1.c\
+			set_values2.c\
 			create_struct.c\
 			draw.c\
 
