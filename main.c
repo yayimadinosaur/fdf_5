@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/18 19:58:15 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/19 16:27:29 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int		main(int ac, char **av)
 		j = 0;
 		while (j < e->col)
 		{
-			printf("[i%i][j%i][x%f][y%f][z%f]\n", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
+			printf("[i%i][j%i]\n[x(%f)][y(%f)][z(%f)]\n", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
+			printf("[x2(%f)][y2(%f)]\n", e->pts[i][j].x2, e->pts[i][j].y2);
 		//	printf("[x_s%f][y_s%f]\n", e->pts[i][j].x_stop, e->pts[i][j].y_stop);
 			j++;
 		}

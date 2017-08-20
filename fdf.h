@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/18 19:25:39 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/19 16:32:58 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ typedef struct			s_pts
 	float					x;
 	float					y;
 	float					z;
-	float					run;
-	float					rise;
-//	float					x2;	//x pixel stop
-//	float					y2;	//y pixel stop
-	float					m_slope;	//slope of line = m
+	float					x2;	//x pixel stop
+	float					y2;	//y pixel stop
+	float					run;	//x2 - x1
+	float					rise;	//y2 - y1
+	float					m;	//slope of line = m
+	float					offset;
+	float					adjust;
 }						t_pts;	//malloc for (**t_pts) row * col
 
 typedef struct			s_env

@@ -6,11 +6,26 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 15:51:20 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/18 19:25:33 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/19 17:34:01 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void		set_values_2(t_env *e, int i, int j)
+{
+	e->pts[i][j].x = j * e->gap;
+	e->pts[i][j].y = i * e->gap;
+	e->pts[i][j].x2 = ((j + 1 < e->col ? (j + 1) * e->gap : e->pts[i][j].x));
+	e->pts[i][j].y2 = ((i + 2 < e->col ? (i + 1) * e->gap : e->pts[i][j].y));
+	e->pts[i][j].run = e->pts[i][j].x2 - e->pts[i][j].x;
+	e->pts[i][j].rise = e->pts[i][j].y2 - e->pts[i][j].y;
+	e->pts[i][j].m = e->pts[i][j].rise / e->pts[i][j].run;
+	if (e->pts[i][j].run == 0)
+		e->pts[i][j].m = ;	//draw straight
+	e->pts[i][j].m >= 0 ? e->pts[i][j].adjust = 1 : adjust = -1;
+	e->pts[i][j].offset = 0.5;
+}
 
 static void		clean_strsplit(char **buff, char *line, t_env *e, int range)
 {
@@ -71,16 +86,12 @@ void			set_values2(int win_size, t_env *e, char **av)
 			clean_strsplit(buff, line, e, e->col);
 		while (j < e->col)
 		{
-			e->pts[i][j].x = j * e->gap;
-			e->pts[i][j].y = i * e->gap;
 			e->pts[i][j].z = ft_atoi(buff[j]);
-	//		e->pts[i][j].x2 = (j + 1) * e->gap;
-	//		e->pts[i][j].y2 = (i + 1) * e->gap;
+			set_values_2(e, i, j);
 			j++;
 		}
 		clean_strsplit(buff, line, e, e->col);
 		i++;
 	}
-//	printf("setvalues i%ij%i\n", i, j);
 	close(fd);
 }
