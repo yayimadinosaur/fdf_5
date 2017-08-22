@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 15:51:20 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/19 17:34:01 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/21 19:45:24 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ static void		set_values_2(t_env *e, int i, int j)
 	e->pts[i][j].rise = e->pts[i][j].y2 - e->pts[i][j].y;
 	e->pts[i][j].m = e->pts[i][j].rise / e->pts[i][j].run;
 	if (e->pts[i][j].run == 0)
-		e->pts[i][j].m = ;	//draw straight
-	e->pts[i][j].m >= 0 ? e->pts[i][j].adjust = 1 : adjust = -1;
+		e->pts[i][j].m = 0;	//draw straight
+	e->pts[i][j].adjust = (e->pts[i][j].m >= 0 ? 1 : -1);
+//	e->pts[i][j].m >= 0 ? e->pts[i][j].adjust = 1 : e->pts[i][j].adjust = -1;
 	e->pts[i][j].offset = 0.5;
 }
 
@@ -88,6 +89,7 @@ void			set_values2(int win_size, t_env *e, char **av)
 		{
 			e->pts[i][j].z = ft_atoi(buff[j]);
 			set_values_2(e, i, j);
+			printf("i[%i]j[%i]\n[%f]\nx [%f]\ny [%f]\nz [%f]\nx2 [%f]\nrun [%f]\nrise [%f]\nm [%f]\noffset [%f]\nadjust [%f]\n\n", i, j , e->pts[i][j].x ,e->pts[i][j].y ,e->pts[i][j].z ,e->pts[i][j].x2 ,e->pts[i][j].y2 ,e->pts[i][j].run ,e->pts[i][j].rise ,e->pts[i][j].m ,e->pts[i][j].offset ,e->pts[i][j].adjust );
 			j++;
 		}
 		clean_strsplit(buff, line, e, e->col);

@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 18:36:17 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/19 16:16:57 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/21 19:09:03 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,24 @@ void		draw_down(void *mlx, void *win, t_env *e)
 	}
 }
 
+//psuedo
+//
+//while i
+//	i++;
+//	while j
+//		slope check
+//			slope == 0 - draw straight
+//			slope > -1 && < 1 == gradual?
+//			else	sharp?
+//	j++;
+//
+//		inside anyone of the 3 slope situations
+//			change x depending on y or vice version
+//			if no slope, draw straight
+//
+//rotate?
+//translate
+//
 /*
 void		draw_sharp()
 {
@@ -98,7 +116,8 @@ void		draw(void *mlx, void *win, t_env *e)
 		}
 		i++;
 	}
-*/	draw_right(mlx, win, e);
+*/	
+	draw_right(mlx, win, e);
 	draw_down(mlx, win, e);
 	printf("drawend\n");
 }
