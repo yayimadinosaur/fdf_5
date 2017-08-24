@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 18:36:17 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/21 19:09:03 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/23 18:02:46 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void		draw_gradual()
 
 }
 */
+
 void		draw(void *mlx, void *win, t_env *e)
 {
 /*	int		i;
@@ -112,6 +113,8 @@ void		draw(void *mlx, void *win, t_env *e)
 		j = 0;
 		while (j < e->col)
 		{
+			draw_right(mlx, win, e);
+			draw_down(mlx, win, e);
 			j++;
 		}
 		i++;
