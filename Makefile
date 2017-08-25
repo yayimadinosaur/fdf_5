@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/11 14:50:44 by wfung             #+#    #+#              #
-#    Updated: 2017/08/18 15:52:25 by wfung            ###   ########.fr        #
+#    Updated: 2017/08/24 15:40:00 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRCS	=	main.c\
 			parse_fdf.c\
 			set_values2.c\
 			create_struct.c\
-			draw.c\
+			rotate.c\
+			draw1.c\
+			print_test.c\
 
 OBJ =		${SRCS:.c=.o}
 

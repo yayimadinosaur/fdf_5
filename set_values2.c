@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 15:51:20 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/21 19:45:24 by wfung            ###   ########.fr       */
+/*   Updated: 2017/08/24 16:52:25 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void		set_values_2(t_env *e, int i, int j)
 	e->pts[i][j].y = i * e->gap;
 	e->pts[i][j].x2 = ((j + 1 < e->col ? (j + 1) * e->gap : e->pts[i][j].x));
 	e->pts[i][j].y2 = ((i + 2 < e->col ? (i + 1) * e->gap : e->pts[i][j].y));
-	e->pts[i][j].run = e->pts[i][j].x2 - e->pts[i][j].x;
-	e->pts[i][j].rise = e->pts[i][j].y2 - e->pts[i][j].y;
+	e->pts[i][j].run = round(e->pts[i][j].x2) - round(e->pts[i][j].x);
+	e->pts[i][j].rise = round(e->pts[i][j].y2) - round(e->pts[i][j].y);
 	e->pts[i][j].m = e->pts[i][j].rise / e->pts[i][j].run;
-	if (e->pts[i][j].run == 0)
+	if (e->pts[i][j].run == 0 || e->pts[i][j].rise == 0)
 		e->pts[i][j].m = 0;	//draw straight
 	e->pts[i][j].adjust = (e->pts[i][j].m >= 0 ? 1 : -1);
 //	e->pts[i][j].m >= 0 ? e->pts[i][j].adjust = 1 : e->pts[i][j].adjust = -1;
@@ -89,7 +89,7 @@ void			set_values2(int win_size, t_env *e, char **av)
 		{
 			e->pts[i][j].z = ft_atoi(buff[j]);
 			set_values_2(e, i, j);
-			printf("i[%i]j[%i]\n[%f]\nx [%f]\ny [%f]\nz [%f]\nx2 [%f]\nrun [%f]\nrise [%f]\nm [%f]\noffset [%f]\nadjust [%f]\n\n", i, j , e->pts[i][j].x ,e->pts[i][j].y ,e->pts[i][j].z ,e->pts[i][j].x2 ,e->pts[i][j].y2 ,e->pts[i][j].run ,e->pts[i][j].rise ,e->pts[i][j].m ,e->pts[i][j].offset ,e->pts[i][j].adjust );
+			printf("i[%i]j[%i]\nx [%f] x2 [%f]\ny [%f] y2 [%f]\nz [%f]\nrun [%f]\nrise [%f]\nm [%f]\noffset [%f]\nadjust [%f]\n\n", i, j , e->pts[i][j].x, e->pts[i][j].x2,e->pts[i][j].y, e->pts[i][j].y2,e->pts[i][j].z ,e->pts[i][j].run ,e->pts[i][j].rise ,e->pts[i][j].m ,e->pts[i][j].offset ,e->pts[i][j].adjust );	//
 			j++;
 		}
 		clean_strsplit(buff, line, e, e->col);
