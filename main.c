@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/24 16:36:26 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/24 19:33:15 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int ac, char **av)
 		ft_puterror("Please include a .fdf file");
 	e = parse_fdf(av);
 	ft_putstr(".fdf parsing filename + file contents  pass!\n");	//
-	set_values2(600, e, av);
+	set_values2(100, e, av);
 	//printf("struct values\nw_size_x %i\nw_size_y %i\nw_mid_x %f\nw_mid_y %f\nstart_x %i\nstart_y %i\nend_x %f\nend_y %f\ngap %f\nrow %i\ncol %i\n",
 //	e->win_size_x, e->win_size_y, e->win_mid_x, e->win_mid_y, e->start_x,
 //	e->start_y, e->end_x, e->end_y, e->gap, e->row, e->col);
@@ -28,7 +28,7 @@ int		main(int ac, char **av)
 //	print_test(e);
 	//fin test
 	e->mlx = mlx_init();
-	e->win = mlx_new_window(e->mlx, 600, 600, "42");
+	e->win = mlx_new_window(e->mlx, 100, 100, "42");
 	//rotate
 	//translate
 	draw1(e);

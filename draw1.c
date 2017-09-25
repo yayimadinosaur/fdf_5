@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 18:17:11 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/24 16:28:14 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/24 19:58:25 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void		draw_right(t_env *e)
 				else if (e->pts[i][j].m < -1 || e->pts[i][j].m > 1)
 					draw_sharp(e, next);
 				else	//m == 0
-			*/	if (e->pts[i][j].m == 0)	
+			*///	if (e->pts[i][j].m == 0)	
 					draw_straight(e, e->pts[i][j].y, next, 0);
 				next++;
 			}
@@ -85,7 +85,7 @@ static void		draw_down(t_env *e)
 			else if (e->pts[i][j].m < -1 || e->pts[i][j].m > 1)
 				draw_sharp(e, next);
 			else	//m == 0
-	*/			if (e->pts[i][j].m == 0)
+	*/		//	if (e->pts[i][j].m == 0)
 					draw_straight(e, e->pts[i][j].x, next, 1);
 				next++;
 			}
