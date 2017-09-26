@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:06:47 by wfung             #+#    #+#             */
-/*   Updated: 2017/08/24 15:40:59 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/25 17:26:04 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		array_int(char **result_str, int n, int *array);
 //void		draw(void *mlx, void *win, t_env *e);
 void		draw1(t_env *e);
 
-//void		rotate(t_fdfstore *store, t_env *e);
+void		rotate(t_env *e);
 //void		translate(t_fdfstore *store, t_env *e);
 //
 //ttest functions
