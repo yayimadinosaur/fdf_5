@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/09/25 18:47:58 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/26 18:43:47 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 //uses set_window2.c
 int		main(int ac, char **av)
 {
+	int	i = 0;	//
+	int j;//
 	t_env	*e;
 	if (ac != 2)
 		ft_puterror("Please include a .fdf file");
@@ -28,12 +30,23 @@ int		main(int ac, char **av)
 //	print_test(e);
 	//fin test
 	rotate(e);
+	printf("---------------------------------------------\n");
+	while (i < e->col)
+	{
+		j = 0;
+		while (j < e->row)
+		{
+			printf("newv i[%i][%i]\nx [%f]\ny [%f]\nz [%f]\n", i, j, e->pts[i][j].x, e->pts[i][j].y, e->pts[i][j].z);
+			j++;
+		}
+		i++;
+	}
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, 600, 600, "42");
 	//rotate
 	//translate
-//	draw1(e);
-	draw_right(e);
+	//	draw1(e);
+//	draw_right(e);
 	mlx_loop(e->mlx);
 	return (0);
 }

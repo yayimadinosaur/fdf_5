@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/23 17:48:03 by wfung             #+#    #+#             */
-/*   Updated: 2017/09/25 17:24:34 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/26 18:40:12 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	rotate_y(t_env *e)
 		j = 0;
 		while (j < e->row)
 		{
-			e->pts[i][j].x = (e->pts[i][j].x * cos(0.7845)) + (e->pts[i][j].z * sin(0.7845));
-			e->pts[i][j].z = -(e->pts[i][j].x * sin(0.7845)) + (e->pts[i][j].z * cos(0.7845));
+			e->pts[i][j].x = (e->pts[i][j].x * cos(0.045)) + (e->pts[i][j].z * sin(0.045));
+			e->pts[i][j].z = -(e->pts[i][j].x * sin(0.045)) + (e->pts[i][j].z * cos(0.045));
 			j++;
 		}
 		i++;
