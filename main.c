@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:50:09 by wfung             #+#    #+#             */
-/*   Updated: 2017/09/26 18:43:47 by wfung            ###   ########.fr       */
+/*   Updated: 2017/09/28 18:14:28 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		main(int ac, char **av)
 	//rotate
 	//translate
 	//	draw1(e);
+//	draw_right(e);
+	draw_down(e);
 //	draw_right(e);
 	mlx_loop(e->mlx);
 	return (0);

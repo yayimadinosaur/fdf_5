@@ -6,7 +6,7 @@
 #    By: wfung <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/11 14:50:44 by wfung             #+#    #+#              #
-#    Updated: 2017/09/25 18:51:45 by wfung            ###   ########.fr        #
+#    Updated: 2017/09/28 17:58:32 by wfung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	main.c\
 			rotate.c\
 			print_test.c\
 			draw_right.c\
+			draw_down.c\
 
 OBJ =		${SRCS:.c=.o}
 
